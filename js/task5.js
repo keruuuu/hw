@@ -1,47 +1,21 @@
-const COUNTRY_DELIVERY = {
-    "Китай": 150,
-    "Чили": 250,
-    "Австралия": 165,
-    "Индия": 90,
-    "Ямайка": 130
-};
+const checkForSpam = function(message) {
 
-let messageForUser;
-let userAnswer = prompt("Укажите страну доставки", '');
-if (userAnswer==null||userAnswer=='') {
-    messageForUser = "Отменено пользователем";
-} else {
-    let countryVerification = userAnswer[0].toUpperCase() + userAnswer.toLowerCase().slice(1);
-    let exit = false;
-    for (let key in COUNTRY_DELIVERY) {
-        if (exit) {
-            break;
-        }
-        switch (countryVerification) {
-            case key:
-                exit = true;
-                alert(`Доставка в ${countryVerification} будет стоить ${COUNTRY_DELIVERY[key]} кредитов`);
-                break;
-            case key:
-                exit = true;
-                alert ( `Доставка в ${countryVerification} будет стоить ${COUNTRY_DELIVERY[key]} кредитов`);
-                break;
-            case key:
-                exit = true;
-                alert(`Доставка в ${countryVerification} будет стоить ${COUNTRY_DELIVERY[key]} кредитов`);
-                break;
-            case key:
-                exit = true;
-                alert(`Доставка в ${countryVerification} будет стоить ${COUNTRY_DELIVERY[key]} кредитов`);
-                break;
-            case key:
-                exit = true;
-                alert(`Доставка в ${countryVerification} будет стоить ${COUNTRY_DELIVERY[key]} кредитов`);
-                break;
-        }
+    if(message.toLowerCase().indexOf('spam') == -1 && message.toLowerCase().indexOf('sale') == -1){
+        return('false')
     }
-
-    if (exit == false) {
-        alert('В вашей стране доставка не доступна');
+    else{
+        return('true')
     }
 }
+    
+  
+  /*
+   * Вызовы функции для проверки работоспособности твоей реализации.
+   */
+  console.log(checkForSpam('Latest technology news')); // false
+  
+  console.log(checkForSpam('JavaScript weekly newsletter')); // false
+  
+  console.log(checkForSpam('Get best sale offers now!')); // true
+  
+  console.log(checkForSpam('[SPAM] How to earn fast money?')); // true

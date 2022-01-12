@@ -1,12 +1,17 @@
-let res = 0;
-let num;
- do{
-     num = prompt('введите число');
-     if (isNaN(num)){
-         alert('было введено не чимло');
-     }
-     else{
-         res = res + Number(num);
-     }
- } while (num !== null)
- alert(`Общая сумма чисел равна ${res}`);  
+const numbers = [];
+let total = 0;
+for (let i = 0; true; i++) {
+  let input = prompt("Enter any number: ");
+  if (input) {
+    numbers.push(input);
+  } else {
+    if (numbers.length) {
+      for (let num of numbers) {
+        total += Number(num);
+      }
+    }
+    break;
+  }
+}
+console.log(numbers);
+console.log(`Общая сумма чисел равна ${total}`);
